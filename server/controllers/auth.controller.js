@@ -2,7 +2,7 @@
 const UserForFoodDeliveryApp=require('../models/user.model')
 const bcrypt=require("bcrypt")
 const jwt=require("jsonwebtoken")
-
+//password is ${userName}123 for just own remembring
 //signup controller
 
 const signup=async(req,res)=>{

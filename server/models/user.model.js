@@ -10,7 +10,9 @@ const userSchema=new mongoose.Schema({
     },
     phoneNumber: {
         type: String,
-        maxlength: 10,
+        required:true,
+        
+         length: 10,
         validate: {
             validator: function(value) {
                 // Custom validation: Check if there are no spaces in the phoneNumber
@@ -72,6 +74,14 @@ const userSchema=new mongoose.Schema({
     savedPaymentMethords:{
         type:[],
         default:[]
+    },
+    isAdmin:{
+        type:Boolean,
+        default:false
+    },
+    restaurantOwner:{
+        type:Boolean,
+        default:false
     }
 
 })

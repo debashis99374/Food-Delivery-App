@@ -5,11 +5,13 @@ const app=express()
 const helmet=require("helmet")
 const cors=require("cors")
 const authRouter = require("./routes/auth.routes.js")
+const userRouter = require("./routes/user.router.js")
 
 app.use(cors())
 app.use(express.json())
 app.use(helmet())
 app.use('/',authRouter)
+app.use('/',userRouter)
 
 
 app.get('/',(req,res)=>{
