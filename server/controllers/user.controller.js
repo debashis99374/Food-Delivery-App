@@ -53,9 +53,29 @@ const updatePassword=async(req,res)=>{
         res.status(500).json({message:`error is : ${err}`})
     }
 }
+//delete user profile
+const deleteUserSelfProfile=async(req,res)=>{
+    const userId=req.user._id
+    const userId2=req.user.userId
+    try{
+        const loggedInUser=await UserForFoodDeliveryApp.findById(userId)
+        if(!loggedInUser){
+            return  res.status(400).json({message:"user not loggedin"}) 
+        }
+        if(loggedInUser._id.toString()!==userId2){
+            return  res.status(401).json({message:"you cant delete someone else account"}) 
+        }
+      const deletedAccount=await UserForFoodDeliveryApp.findByIdAndDelete(userId2)
+      return res.status(200).json({message:"password updated",data:deletedAccount})
+
+    }catch(err){
+        res.status(500).json({message:`error is : ${err}`})
+    }
+}
 
 module.exports={
     allUsers,
     editUserProfile,
-    updatePassword
+    updatePassword,
+    deleteUserSelfProfile
 }

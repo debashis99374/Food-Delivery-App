@@ -66,6 +66,10 @@ const restaurantSchema=new mongoose.Schema({
             }
         ],
         default:[]
+    },
+    tags:{
+        type:[String],
+        enum:["Thai","Indian","Chinise","Italian","Maxican","South indian"]
     }
 },{timestamps:true})
 const Restaurant2=new mongoose.model("Restaurant2",restaurantSchema)

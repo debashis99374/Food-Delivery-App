@@ -7,6 +7,7 @@ const cors=require("cors")
 const authRouter = require("./routes/auth.routes.js")
 const userRouter = require("./routes/user.router.js")
 const adminRouter = require("./routes/admin-routes.js")
+const restaurantRouter = require("./routes/restaurant.routes.js")
 
 app.use(cors())
 app.use(express.json())
@@ -14,6 +15,7 @@ app.use(helmet())
 app.use('/',authRouter)
 app.use('/',userRouter)
 app.use('/',adminRouter)
+app.use('/',restaurantRouter)
 
 
 app.get('/',(req,res)=>{
