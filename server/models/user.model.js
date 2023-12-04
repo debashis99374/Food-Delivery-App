@@ -62,9 +62,24 @@ const userSchema=new mongoose.Schema({
     orders:{
         type:[
             {
-                restaurantId:{
-                    type:mongoose.Schema.Types.ObjectId,
-                    ref:"Restaurant2"
+                restaurantName:{
+                    type:String,
+                required:true
+                },
+                addressDetails:{
+                    addressType:String,
+                    state:String,
+                    city:String,
+                    street:String
+                },
+                amount:{
+                    type:Number,
+                    required:true
+                    
+                },
+                orderDate:{
+                    type:Date,
+                    default:Date.now
                 }
                 
             }
@@ -82,6 +97,11 @@ const userSchema=new mongoose.Schema({
     restaurantOwner:{
         type:Boolean,
         default:false
+    },
+    favourates:{
+        type:[],
+        default:[],
+
     }
 
 })
